@@ -1,0 +1,1 @@
+web: gunicorn secondeproject.wsgi --log-file -
