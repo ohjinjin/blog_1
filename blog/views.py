@@ -5,7 +5,7 @@ from datetime import date
 
 # Create your views here.
 
-def blog(request):
+def home(request):
     blogs = Blog.objects    # 쿼리셋 # 메소드
     #print(type(blogs))
     return render(request,'blog.html',{'blogs' : blogs.order_by("id").reverse().all()[:3]})   # 객체를 역순으로 정렬하여 마지막 세개만 반환
