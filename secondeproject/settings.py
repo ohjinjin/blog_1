@@ -20,10 +20,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'g$__4e0izd*n2!^3ewuhj$1y_)51v6e4^s^5rr13f=h(bz4@yf'
+# SECRET_KEY = 'g$__4e0izd*n2!^3ewuhj$1y_)51v6e4^s^5rr13f=h(bz4@yf'
+import os
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = []
 
@@ -39,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'portfolio.apps.PortfolioConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
